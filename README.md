@@ -1,7 +1,7 @@
 # Ubuntu Desktop running Openbox in VNC for Rapid Developers
 
 ## Base Docker Image
-[Ubuntu](https://hub.docker.com/_/ubuntu) 18.04 (x64)
+[fullaxx/ubuntu-desktop](https://hub.docker.com/r/fullaxx/ubuntu-desktop)
 
 ## Get the image from Docker Hub
 ```
