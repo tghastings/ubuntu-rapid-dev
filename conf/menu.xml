@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<openbox_menu xmlns="http://openbox.org/3.4/menu">
+
+<menu id="apps-terminals-menu" label="Terminals">
+	<item label="xterm"><action name="Execute"><command>xterm</command></action></item>
+	<item label="uxterm"><action name="Execute"><command>uxterm</command></action></item>
+	<item label="terminator"><action name="Execute"><command>terminator</command></action></item>
+	<item label="terminology"><action name="Execute"><command>terminology</command></action></item>
+</menu>
+
+<menu id="apps-editors-menu" label="Editors">
+	<item label="Gedit"><action name="Execute"><command>gedit</command></action></item>
+	<item label="GVim"><action name="Execute"><command>gvim</command></action></item>
+	<item label="Medit"><action name="Execute"><command>medit</command></action></item>
+	<item label="Bluefish"><action name="Execute"><command>bluefish</command></action></item>
+	<item label="Geany"><action name="Execute"><command>geany</command></action></item>
+	<item label="VSCode"><action name="Execute"><command>code --user-data-dir /root/vscode</command></action></item>
+	<item label="X File Writer"><action name="Execute"><command>xfwrite</command></action></item>
+</menu>
+
+<menu id="apps-office-menu" label="Office">
+	<item label="LibreOffice"><action name="Execute"><command>libreoffice</command></action></item>
+</menu>
+
+<menu id="apps-network-browsers-menu" label="Browsers">
+	<item label="Chrome"><action name="Execute"><command>google-chrome --no-sandbox</command></action></item>
+	<item label="Chromium"><action name="Execute"><command>chromium-browser --no-sandbox</command></action></item>
+	<item label="Firefox"><action name="Execute"><command>firefox</command></action></item>
+</menu>
+
+<menu id="apps-network-tools-menu" label="Tools">
+	<item label="Wireshark"><action name="Execute"><command>wireshark</command></action></item>
+	<item label="Zenmap"><action name="Execute"><command>zenmap</command></action></item>
+</menu>
+
+<menu id="apps-network-menu" label="Network">
+	<menu id="apps-network-browsers-menu"/>
+	<menu id="apps-network-tools-menu"/>
+</menu>
+
+<menu id="apps-graphics-menu" label="Graphics">
+	<item label="Gimp"><action name="Execute"><command>gimp</command></action></item>
+	<item label="Inkscape"><action name="Execute"><command>inkscape</command></action></item>
+</menu>
+
+<menu id="apps-utilities-menu" label="Utilities">
+	<item label="Caja File Manager"><action name="Execute"><command>caja</command></action></item>
+	<item label="Galculator"><action name="Execute"><command>galculator</command></action></item>
+	<item label="GnuRadio Companion"><action name="Execute"><command>/opt/gnuradio/bin/gnuradio-companion</command></action></item>
+	<item label="Htop (xterm)"><action name="Execute"><command>xterm -T htop -g 160x48 -e htop</command></action></item>
+	<item label="X File Explorer"><action name="Execute"><command>xfe</command></action></item>
+</menu>
+
+<menu id="system-menu" label="System">
+  <item label="Reconfigure Openbox">
+    <action name="Reconfigure" />
+  </item>
+</menu>
+
+<menu id="root-menu" label="Openbox 3">
+	<separator label="Terminals" />
+	<item label="xterm"><action name="Execute"><command>xterm</command></action></item>
+	<separator label="Applications" />
+	<menu id="apps-terminals-menu"/>
+	<menu id="apps-editors-menu"/>
+	<menu id="apps-office-menu"/>
+	<menu id="apps-network-menu"/>
+	<menu id="apps-graphics-menu"/>
+	<menu id="apps-utilities-menu"/>
+	<separator label="System" />
+	<menu id="system-menu"/>
+	<separator />
+	<item label="Log Out"><action name="Exit"><prompt>yes</prompt></action></item>
+</menu>
+
+</openbox_menu>

@@ -1,0 +1,25 @@
+#
+# These things are run when an Openbox X Session is started.
+# You may place a similar script in $HOME/.config/openbox/autostart
+# to run user-specific things.
+#
+
+# if VNCUMASK was set at docker cmdline
+# make sure we set umask here also during autostart
+if [ -n "${VNCUMASK}" ]; then
+  umask "${VNCUMASK}"
+# touch /tmp/TEST (test case should show umask taking affect)
+fi
+
+mkdir -p ${HOME}/.config/htop
+cp /usr/share/ubuntu-desktop/htop/htoprc ${HOME}/.config/htop/htoprc
+
+# https://github.com/jessfraz/dockerfiles/issues/4
+xhost local:root
+
+fbpanel &
+
+hsetroot -center /usr/share/ubuntu-desktop/bg/acumen1HDfree.jpg
+
+# This will setup PATH correctly (with items from /etc/profile.d/)
+source  /etc/profile

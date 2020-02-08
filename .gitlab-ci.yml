@@ -1,0 +1,20 @@
+image: 10.10.100.7:5000/rrbdocker
+
+services:
+  - name: 10.10.100.7:5000/docker:dind
+    command: ["--insecure-registry=10.10.100.7:5000"]
+
+stages:
+- build
+
+variables:
+  RELEASE_IMAGE: artifactory.service:5000/ubuntu-dev
+
+build:
+  stage: build
+ 
+
+  script:
+    - docker build --pull -t $RELEASE_IMAGE-dev:$CI_PIPELINE_IID .
+    - docker push $RELEASE_IMAGE-dev:$CI_PIPELINE_IID
+
