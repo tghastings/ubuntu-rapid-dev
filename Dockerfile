@@ -29,10 +29,10 @@ galculator gdb geany gedit gimp git gkrellm gnupg2 \
 htop hexcompare hexcurse hexdiff hexedit hexer \
 iftop inkscape iperf jupyter-notebook kcachegrind kmod \
 less libcurl4 libczmq4 liblog4cpp5v5 libmicrohttpd12 \
-libpcap0.8 libprotobuf10 libprotobuf-c1 \
-libssl1.1 libxml2 libzmq5 libzmq-java lsof \
-man mc medit mosh most nedit netcat nload nmap nmapfe nmon \
-openssh-server openssh-client \
+libpcap0.8 libprotobuf10 libprotobuf-c1 libssl1.1 \
+libwebsockets8 libwebsockets-test-server libwebsockets-test-server-common \
+libxml2 libzmq5 libzmq-java lsof man mc medit mosh most \
+nedit netcat nload nmap nmapfe nmon openssh-server openssh-client \
 p7zip patch parallel psmisc python3.8 rsync \
 screen simpleburn software-properties-common sqlite3 subversion sudo swig \
 tcpdump terminator terminology tmux tree \
@@ -87,11 +87,11 @@ python-zmq python3-zmq
 # ------------------------------------------------------------------------------
 # Install dev libraries
 RUN apt-get install -y libboost-all-dev \
-libcurl4-openssl-dev libczmq-dev libhiredis-dev \
+libcurl4-openssl-dev libczmq-dev libgnutls28-dev libhiredis-dev \
 liblog4cpp5-dev libmicrohttpd-dev libmongoc-dev libmongodb-java \
 libpcap-dev libprotobuf-dev libprotobuf-c-dev libprotobuf-java \
-libsqlite3-dev libssl-dev libxml2-dev libzmq3-dev \
-pyqt5-dev uuid-dev
+libsodium-dev libsqlite3-dev libssl-dev libwebsockets-dev \
+libxml2-dev libzmq3-dev pyqt5-dev uuid-dev
 
 # ------------------------------------------------------------------------------
 # Install GNURadio (FIXME)
