@@ -85,6 +85,7 @@ RUN apt-get install -y libczmq-dev libzmq3-dev \
 libcurl4-openssl-dev libhiredis-dev libmicrohttpd-dev libpcap-dev \
 libsqlite3-dev libssl-dev libxml2-dev liblog4cpp5-dev pyqt5-dev uuid-dev
 
+# ------------------------------------------------------------------------------
 # Install GNURadio (THIS DOES NOT WORK YET)
 #RUN git clone --recursive https://github.com/gnuradio/gnuradio.git && \
 #mkdir -p /opt/gnuradio && \
