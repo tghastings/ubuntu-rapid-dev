@@ -49,11 +49,11 @@ dpkg -i ${VSCODEDEB} || (set -e; apt-get update; apt-get install -f -y) && \
 rm ${VSCODEDEB}
 
 # ------------------------------------------------------------------------------
-# Install Anaconda
-#RUN wget https://repo.anaconda.com/archive/${ANACFILE} && \
-#chmod +x ${ANACFILE} && \
-#./${ANACFILE} -b && \
-#rm ${ANACFILE}
+# Skipping Anaconda for now ...
+# RUN wget https://repo.anaconda.com/archive/${ANACFILE} && \
+# chmod +x ${ANACFILE} && \
+# ./${ANACFILE} -b && \
+# rm ${ANACFILE}
 
 # ------------------------------------------------------------------------------
 # Install docker-compose
@@ -86,14 +86,14 @@ libcurl4-openssl-dev libhiredis-dev libmicrohttpd-dev libpcap-dev \
 libsqlite3-dev libssl-dev libxml2-dev liblog4cpp5-dev pyqt5-dev uuid-dev
 
 # ------------------------------------------------------------------------------
-# Install GNURadio (THIS DOES NOT WORK YET)
-#RUN git clone --recursive https://github.com/gnuradio/gnuradio.git && \
-#mkdir -p /opt/gnuradio && \
-#(cd gnuradio && git checkout maint-3.8 && sed -i 's/-std=c++${CMAKE_CXX_STANDARD}/-std=c++11/' CMakeLists.txt && mkdir build && cd build && cmake -DCMAKE_INSTALL_PREFIX=/opt/gnuradio ../ && make install -j `nproc`) && \
-#echo "/opt/gnuradio/lib64" > /etc/ld.so.conf.d/gnuradio.conf && ldconfig && \
-#cp -a /gnuradio/grc/scripts/gnuradio-companion /opt/gnuradio/bin && \
-#echo 'export PATH=$PATH:/opt/gnuradio/bin' > /etc/profile.d/gnuradio.sh && \
-#rm -rf gnuradio
+# Install GNURadio (FIXME)
+# RUN git clone --recursive https://github.com/gnuradio/gnuradio.git && \
+# mkdir -p /opt/gnuradio && \
+# (cd gnuradio && git checkout maint-3.8 && sed -i 's/-std=c++${CMAKE_CXX_STANDARD}/-std=c++11/' CMakeLists.txt && mkdir build && cd build && cmake -DCMAKE_INSTALL_PREFIX=/opt/gnuradio ../ && make install -j `nproc`) && \
+# echo "/opt/gnuradio/lib64" > /etc/ld.so.conf.d/gnuradio.conf && ldconfig && \
+# cp -a /gnuradio/grc/scripts/gnuradio-companion /opt/gnuradio/bin && \
+# echo 'export PATH=$PATH:/opt/gnuradio/bin' > /etc/profile.d/gnuradio.sh && \
+# rm -rf gnuradio
 
 # ------------------------------------------------------------------------------
 # Clean up
