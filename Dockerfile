@@ -94,16 +94,10 @@ libsodium-dev libsqlite3-dev libssl-dev libwebsockets-dev \
 libxml2-dev libzmq3-dev pyqt5-dev uuid-dev
 
 # ------------------------------------------------------------------------------
-# Install GNURadio (FIXME)
-# RUN mkdir -p /opt/gnuradio && \
-# git clone --recursive https://github.com/gnuradio/gnuradio.git && \
-# ( cd gnuradio && git checkout maint-3.8 && mkdir build && cd build && \
-# cmake -DCMAKE_INSTALL_PREFIX=/opt/gnuradio -DCMAKE_CXX_STANDARD=11 ../ && \
-# make install -j `nproc` ) && \
-# echo "/opt/gnuradio/lib64" > /etc/ld.so.conf.d/gnuradio.conf && ldconfig && \
-# cp -a gnuradio/grc/scripts/gnuradio-companion /opt/gnuradio/bin && \
-# echo 'export PATH=$PATH:/opt/gnuradio/bin' > /etc/profile.d/gnuradio.sh && \
-# rm -rf gnuradio
+# Install GNURadio
+RUN add-apt-repository ppa:gnuradio/gnuradio-releases && \
+apt-get update && \
+apt-get -y install gnuradio
 
 # ------------------------------------------------------------------------------
 # Clean up
