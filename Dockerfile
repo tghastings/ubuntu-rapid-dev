@@ -99,6 +99,12 @@ RUN add-apt-repository ppa:gnuradio/gnuradio-releases && \
 apt-get update && \
 apt-get -y install gnuradio
 
+#-------------------------------------------------------------------------------
+# Install NodeJS w/ NPM
+
+RUN apt-get update && apt-get install -y node-gyp nodejs \ 
+nodejs-dev libssl1.0-dev npm 
+
 # ------------------------------------------------------------------------------
 # Clean up
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /var/tmp/* /tmp/*
