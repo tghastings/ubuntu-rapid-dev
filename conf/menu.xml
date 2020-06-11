@@ -17,6 +17,8 @@
 	<item label="Geany"><action name="Execute"><command>geany</command></action></item>
 	<item label="VSCode"><action name="Execute"><command>code --user-data-dir /root/vscode</command></action></item>
 	<item label="X File Writer"><action name="Execute"><command>xfwrite</command></action></item>
+	<item label="Jupyter Notebook"><action name="Execute"><command>/app/scripts/launch_jupyter_notebook.sh</command></action></item>
+	<item label="KeepNote"><action name="Execute"><command>keepnote</command></action></item>
 </menu>
 
 <menu id="apps-office-menu" label="Office">

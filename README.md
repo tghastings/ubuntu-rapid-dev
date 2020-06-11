@@ -19,6 +19,11 @@ Default: 1280x800
 ```
 -e VNCRES='1920x1080'
 ```
+Optional: Bind to Port 5909 \
+Default: port 5901
+```
+-e VNCPORT='9'
+```
 Optional: Set Password Authentication \
 Default: No Authentication
 ```
@@ -38,6 +43,11 @@ Optional: Set a custom group for non-root user \
 Default: same as VNCUSER and VNCUID
 ```
 -e VNCGROUP='guests' -e VNCGID='1001'
+```
+Optional: Set umask to define permission for new files \
+Default: 0022
+```
+-e VNCUMASK='0002'
 ```
 
 ## TimeZone Configuration
@@ -101,6 +111,20 @@ docker run -d -p 127.0.0.1:5901:5901 -e TZ='Asia/Tokyo' fullaxx/ubuntu-rapid-dev
 Run the image with FUSE privileges
 ```
 docker run --device /dev/fuse --cap-add SYS_ADMIN -d -p 127.0.0.1:5901:5901 fullaxx/ubuntu-rapid-dev
+```
+Run the image using host networking binding tigervncserver to port 5909
+```
+docker run -d --network=host -e VNCPORT='9' fullaxx/ubuntu-rapid-dev
+```
+Run the image on localhost port 5901 with a decent hostname
+```
+docker run -d -h mycagedbuntu -p 127.0.0.1:5901:5901 fullaxx/ubuntu-rapid-dev
+```
+
+## Using Jupyter Notebook
+Run the image exposing port 8888 for jupyter notebook
+```
+docker run -d -h jupyternotebook -p 5901:5901 -p 8888:8888 fullaxx/ubuntu-rapid-dev
 ```
 
 ## Connect using vncviewer
