@@ -105,6 +105,14 @@ libsodium-dev libsqlite3-dev libssl-dev libwebsockets-dev \
 libxml2-dev libzmq3-dev python3-dev python3.8-dev pyqt5-dev uuid-dev
 
 # ------------------------------------------------------------------------------
+# Install JAVA libraries
+RUN apt-get install -y netbeans
+
+# ------------------------------------------------------------------------------
+# Install RUBY libraries
+RUN apt-get install -y ruby
+
+# ------------------------------------------------------------------------------
 # Install GNURadio
 RUN add-apt-repository ppa:gnuradio/gnuradio-releases && \
 apt-get update && apt-get -y install gnuradio
