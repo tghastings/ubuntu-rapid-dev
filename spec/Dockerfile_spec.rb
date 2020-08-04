@@ -6,7 +6,7 @@ require "docker"
 describe "Dockerfile" do
   before(:all) do
     image = Docker::Image.build_from_dir('.')
-
+    # image = Docker::Image.get('fullaxx/ubuntu-desktop')
     set :os, family: :debian
     set :backend, :docker
     set :docker_image, image.id
