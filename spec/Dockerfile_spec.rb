@@ -29,8 +29,17 @@ describe "Dockerfile" do
   # Check ruby install
   it "installs required packages" do
     expect(package("ruby")).to be_installed
-end
+  end
 
+  # Check the version of NVIDIA installed 
+  describe command("grep '418.88' /var/log/nvidia-installer.log") do
+    its(:stdout) { should match /Installing NVIDIA driver version 418.88./ }
+  end
+  
+  # Check the CUDA version installed
+  describe command("grep '10.0.130' /opt/cuda/version.txt") do
+    its(:stdout) { should match /CUDA Version 10.0.130/ }
+  end
 
   def os_version
     command("lsb_release -a").stdout
