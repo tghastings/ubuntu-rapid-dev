@@ -17,11 +17,11 @@ ENV VSCODEDEB="/tmp/vscode.deb"
 
 # ------------------------------------------------------------------------------
 # Clean up base and Update apt
-RUN rm -rf /app/scripts && apt-get update
+RUN rm -rf /app/scripts && apt update
 
 # ------------------------------------------------------------------------------
 # Install basic dev tools
-RUN apt-get install -y apcalc apt-transport-https astyle audacious \
+RUN apt install -y apcalc apt-transport-https astyle audacious \
 bash-completion bluefish bridge-utils build-essential \
 caja cdw cgdb chaosreader cmake colordiff colortail ctags cvs \
 ddd docker.io dos2unix doxygen diffstat emacs evince file \
@@ -51,19 +51,19 @@ RUN wget http://us.download.nvidia.com/XFree86/Linux-x86_64/418.88/NVIDIA-Linux-
 # ------------------------------------------------------------------------------
 
 # Install platform tools
-RUN apt-get install -y chromium-browser eclipse firefox \
+RUN apt install -y chromium-browser eclipse firefox \
 libreoffice maven octave openjdk-11-jdk redis
 
 # ------------------------------------------------------------------------------
 # Install Chrome
 RUN wget ${CHROMEURL} -O ${CHROMEDEB} && \
-dpkg -i ${CHROMEDEB} || (set -e; apt-get update; apt-get install -f -y) && \
+dpkg -i ${CHROMEDEB} || (set -e; apt update; apt install -f -y) && \
 rm ${CHROMEDEB}
 
 # ------------------------------------------------------------------------------
 # Install VSCode
 RUN wget ${VSCODEURL} -O ${VSCODEDEB} && \
-dpkg -i ${VSCODEDEB} || (set -e; apt-get update; apt-get install -f -y) && \
+dpkg -i ${VSCODEDEB} || (set -e; apt update; apt install -f -y) && \
 rm ${VSCODEDEB}
 
 # ------------------------------------------------------------------------------
@@ -79,7 +79,7 @@ RUN curl -L ${DCURL} -o /usr/bin/docker-compose
 
 # ------------------------------------------------------------------------------
 # Install python libraries
-RUN apt-get install -y cython cython3 \
+RUN apt install -y cython cython3 \
 python-hiredis python3-hiredis \
 python-mako python3-mako \
 python-numpy python3-numpy \
@@ -97,7 +97,7 @@ python-zmq python3-zmq
 
 # ------------------------------------------------------------------------------
 # Install dev libraries
-RUN apt-get install -y libboost-all-dev \
+RUN apt install -y libboost-all-dev \
 libcurl4-openssl-dev libczmq-dev libgnutls28-dev libhiredis-dev \
 liblog4cpp5-dev libmicrohttpd-dev libmongoc-dev libmongodb-java \
 libpcap-dev libprotobuf-dev libprotobuf-c-dev libprotobuf-java \
@@ -106,20 +106,20 @@ libxml2-dev libzmq3-dev python3-dev python3.8-dev pyqt5-dev uuid-dev
 
 # ------------------------------------------------------------------------------
 # Install JAVA libraries
-RUN apt-get install -y netbeans
+RUN apt install -y netbeans
 
 # ------------------------------------------------------------------------------
 # Install RUBY libraries
-RUN apt-get install -y ruby
+RUN apt install -y ruby
 
 # ------------------------------------------------------------------------------
 # Install GNURadio
 RUN add-apt-repository ppa:gnuradio/gnuradio-releases && \
-apt-get update && apt-get -y install gnuradio
+apt update && apt -y install gnuradio
 
 # ------------------------------------------------------------------------------
 # Clean up
-RUN apt-get clean && rm -rf /var/lib/apt/lists/* /var/tmp/* /tmp/*
+RUN apt clean && rm -rf /var/lib/apt/lists/* /var/tmp/* /tmp/*
 
 # ------------------------------------------------------------------------------
 # Install configuration files
