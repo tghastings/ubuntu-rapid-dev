@@ -134,5 +134,5 @@ vncviewer 127.0.0.1:5901
 
 ## Build it locally using the github repository
 ```
-docker build -t="fullaxx/ubuntu-rapid-dev" github.com/fullaxx/ubuntu-rapid-dev
+docker build -t="tghastings/ubuntu-rapid-dev" github.com/tghastings/ubuntu-rapid-dev
 ```
